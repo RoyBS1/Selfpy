@@ -8,5 +8,5 @@ print(MAX_TRIES)
 word = "yellow"
 print("Guess a letter:")
 letter = input()
-print(letter)
+print(letter.lower())
 print(letter in word)

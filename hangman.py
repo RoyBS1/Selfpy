@@ -12,8 +12,20 @@ word = word.lower()
 print("The word is " + word)
 print(re.sub('[a-z]', '_', word))
 
+def is_valid_input(letter_guessed):
+    if(len(letter_guessed) > 1) and (not letter_guessed.isalpha()) :
+        print("False, from function")
+    elif(not letter_guessed.isalpha()):
+        print("False, from function")
+    elif(len(letter_guessed) > 1):
+        print("False, from function")
+    else:
+        print("True, from function")
+
 print("Guess a letter:")
 letter = input()
+is_valid_input(letter)
+
 if(len(letter) > 1) and (not letter.isalpha()) :
     print("E3")
 elif(not letter.isalpha()):

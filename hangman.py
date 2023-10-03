@@ -12,20 +12,32 @@ word = word.lower()
 print("The word is " + word)
 print(re.sub('[a-z]', '_', word))
 
-guessed_letters_history = ['a', 'b', 'c']
+old_letters_guessed = ['a', 'b', 'c']
 
 def is_valid_input(letter_guessed):
     if(len(letter_guessed) > 1) and (not letter_guessed.isalpha()) :
-        print("False, from function")
+        print("X")
+        old_letters_guessed.sort()
+        joined_string = " -> ".join(old_letters_guessed)
+        print(joined_string)
     elif(not letter_guessed.isalpha()):
-        print("False, from function")
+        print("X")
+        old_letters_guessed.sort()
+        joined_string = " -> ".join(old_letters_guessed)
+        print(joined_string)
     elif(len(letter_guessed) > 1):
-        print("False, from function")
-    elif(letter_guessed in guessed_letters_history):
+        print("X")
+        old_letters_guessed.sort()
+        joined_string = " -> ".join(old_letters_guessed)
+        print(joined_string)
+    elif(letter_guessed in old_letters_guessed):
         print("You already guessed this letter!")
+        old_letters_guessed.sort()
+        joined_string = " -> ".join(old_letters_guessed)
+        print(joined_string)
     else:
         print("True, from function")
-        guessed_letters_history.append(letter_guessed)
+        old_letters_guessed.append(letter_guessed)
 
 print("Guess a letter:")
 letter = input()
@@ -41,4 +53,6 @@ elif(len(letter) > 1):
     
 print("The letter is in the word: ")
 print(letter in word)
+
+
 
